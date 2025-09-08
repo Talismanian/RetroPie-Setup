@@ -49,10 +49,10 @@ function configure_basilisk() {
     isPlatform "kms" && params+=("--screen win/%XRES%/%YRES%")
 
     mkRomDir "macintosh"
-    touch "$romdir/macintosh/Start.txt"
+    touch "$romdir/macintosh/\[No\ Disc\].txt"
 
     mkUserDir "$md_conf_root/macintosh"
 
-    addEmulator 1 "$md_id" "macintosh" "$md_inst/bin/BasiliskII --rom $romdir/macintosh/mac.rom --disk $romdir/macintosh/disk.img --extfs $romdir/macintosh --config $md_conf_root/macintosh/basiliskii.cfg ${params[*]}"
+    addEmulator 1 "$md_id" "macintosh" "$md_inst/bin/BasiliskII --rom $romdir/macintosh/mac.rom --disk $romdir/macintosh/disk.img --extfs $romdir/macintosh --cdrom %ROM% --config $md_conf_root/macintosh/basiliskii.cfg ${params[*]}"
     addSystem "macintosh"
 }
